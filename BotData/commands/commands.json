@@ -1,0 +1,139 @@
+{
+  "command": [
+    {
+      "name": "info",
+      "actions": [
+        {
+          "name": "send Info",
+          "category": "Message",
+          "type": "Send Embed",
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "FFFFFF",
+          "title": "Info",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "**Who has pogramming me?**\n*affenheldTheDev*\n\n**When was I created**\n*27.06.2021 / 17 PM*",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "bal",
+      "actions": [
+        {
+          "name": "get Money",
+          "category": "User Data",
+          "type": "Get User Data",
+          "user": "${dbsVars.CommandAuthor.id}",
+          "field": "cash",
+          "varname": "cash",
+          "savevartype": "temp",
+          "vartype": "User"
+        },
+        {
+          "name": "get Money_1",
+          "category": "User Data",
+          "type": "Get User Data",
+          "user": "${dbsVars.CommandAuthor.id}",
+          "field": "bank",
+          "varname": "bank",
+          "savevartype": "temp",
+          "vartype": "User"
+        },
+        {
+          "name": "user Money Embed",
+          "category": "Message",
+          "type": "Send Embed",
+          "fields": [
+            {
+              "name": "Cash",
+              "value": "On you backpack you have\n**${tempVars.cash}**",
+              "inline": "false"
+            }
+          ],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "30FF61",
+          "title": "Ballance",
+          "url": "",
+          "authorname": "${dbsVars.CommandAuthor.displayName}",
+          "authorimageurl": "${dbsVars.CommandAuthor.user.avatarURL}",
+          "authorlink": "",
+          "description": "**${dbsVars.CommandAuthor.displayName}**",
+          "thumbnail": "",
+          "image": "",
+          "footer": "Money Bot",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "work",
+      "actions": [
+        {
+          "name": "generate money",
+          "category": "Variable",
+          "type": "Generate Random Number",
+          "varname": "gen1",
+          "min": "2",
+          "max": "5",
+          "savevartype": "temp"
+        },
+        {
+          "name": "Give MOney",
+          "category": "User Data",
+          "type": "Edit User Data",
+          "user": "${dbsVars.CommandAuthor.id}",
+          "field": "cash",
+          "oper": "+",
+          "value": "${tempVars.gen1}"
+        },
+        {
+          "name": "Edit Bank to 0",
+          "category": "User Data",
+          "type": "Edit User Data",
+          "user": "${dbsVars.CommandAuthor.id}",
+          "field": "bank",
+          "oper": "+",
+          "value": "0"
+        },
+        {
+          "name": "send Message",
+          "category": "Message",
+          "type": "Send Embed",
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "FFFFFF",
+          "title": "Worker",
+          "url": "",
+          "authorname": "Worker: ${dbsVars.CommandAuthor.displayName}",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "you Worked and got ${tempVars.gen1}$",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "bankin",
+      "perms": [],
+      "actions": []
+    },
+    {
+      "name": "withdraw",
+      "actions": []
+    }
+  ]
+}
